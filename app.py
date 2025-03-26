@@ -12,7 +12,7 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 
 # Chargement des données
-df = pd.read_csv("C:/Users/arthu/Downloads/data.csv")
+df = pd.read_csv("data.csv")
 df['Prix_tot'] = df['Quantity'] * df['Avg_Price'] * (1 - (df['Discount_pct'] / 100))
 df['Transaction_Date'] = pd.to_datetime(df['Transaction_Date'])  # Conversion en datetime
 df['Week'] = df['Transaction_Date'].dt.to_period('W').apply(lambda r: r.start_time)  # Ajout de la colonne semaine
